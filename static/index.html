@@ -1,0 +1,1205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8F6F0">
+  <meta name="description" content="Aura Skincare — Natural Ingredients. Visible Results. Shop serums, sunscreen, cleansers and more.">
+  <title>Aura Skincare — Healthy Skin, Happier You.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   AURA SKINCARE — COMPLETE GREEN + CREAM THEME
+   Matches reference screenshot exactly
+   ═══════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Core palette — fresh green + white */
+  --cream:        #F7FCF7;
+  --cream-alt:    #EEF7EE;
+  --white:        #FFFFFF;
+  --green-dark:   #14532D;
+  --green-mid:    #39B54A;
+  --green-soft:   #4CAF60;
+  --green-light:  #E8F8E8;
+  --green-border: #A8D8A8;
+  --ink:          #0D2B0D;
+  --ink-mid:      #2D4A2D;
+  --muted:        #6A8A6A;
+  --border-light: #D0EAD0;
+  /* Shadows */
+  --sh-xs: 0 1px 4px rgba(18,61,43,0.06);
+  --sh-sm: 0 2px 12px rgba(18,61,43,0.08);
+  --sh-md: 0 4px 24px rgba(18,61,43,0.11);
+  --sh-lg: 0 8px 48px rgba(18,61,43,0.16);
+  /* Radius */
+  --r-sm: 8px; --r-md: 12px; --r-lg: 20px; --r-pill: 40px;
+  /* Type */
+  --font: 'Inter', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  /* Motion */
+  --ease: 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body  { font-family: var(--font); background: var(--cream); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--green-border); border-radius: 3px; }
+:focus-visible { outline: 2px solid var(--green-mid); outline-offset: 3px; }
+
+/* ═══════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════ */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--sh-xs);
+}
+.header-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 28px; height: 66px;
+  display: flex; align-items: center; gap: 20px;
+}
+
+/* Logo */
+.brand {
+  display: flex; align-items: center; gap: 9px;
+  text-decoration: none; flex-shrink: 0; margin-right: 8px;
+}
+.brand-leaf {
+  width: 36px; height: 36px; flex-shrink: 0;
+}
+.brand-text { line-height: 1; }
+.brand-text b  { display: block; font-size: 15px; font-weight: 800; letter-spacing: 2.5px; color: var(--green-dark); }
+.brand-text em { display: block; font-size: 8px;  font-weight: 500; letter-spacing: 3px; color: var(--green-mid); font-style: normal; margin-top: 1px; }
+
+/* Nav links */
+.main-nav { display: flex; align-items: center; gap: 4px; }
+.main-nav a {
+  padding: 6px 13px; font-size: 13.5px; font-weight: 500;
+  color: var(--ink-mid); text-decoration: none; border-radius: 6px;
+  border-bottom: 2.5px solid transparent;
+  transition: color var(--ease), border-color var(--ease), background var(--ease);
+  white-space: nowrap;
+}
+.main-nav a:hover { color: var(--green-dark); background: var(--green-light); }
+.main-nav a.active { color: var(--green-dark); border-bottom-color: var(--green-dark); font-weight: 600; }
+
+/* Header right */
+.hdr-right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+
+.search-wrap {
+  display: flex; align-items: center; gap: 7px;
+  background: var(--cream); border: 1.5px solid var(--border-light);
+  border-radius: var(--r-pill); padding: 7px 14px;
+  transition: border-color var(--ease), box-shadow var(--ease);
+  width: 210px;
+}
+.search-wrap:focus-within { border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(71,124,72,0.12); }
+.search-wrap svg { flex-shrink: 0; color: var(--muted); }
+.search-wrap input { border: none; background: none; font-size: 13px; color: var(--ink); width: 100%; }
+.search-wrap input::placeholder { color: var(--muted); }
+.search-wrap input:focus { outline: none; }
+
+.hdr-icon-btn {
+  position: relative; background: none; border: none;
+  color: var(--ink-mid); padding: 8px; border-radius: 8px;
+  display: grid; place-items: center;
+  transition: color var(--ease), background var(--ease);
+}
+.hdr-icon-btn:hover { color: var(--green-dark); background: var(--green-light); }
+.cart-badge {
+  position: absolute; top: 2px; right: 2px;
+  background: var(--green-dark); color: #fff;
+  min-width: 17px; height: 17px; border-radius: 9px;
+  font-size: 10px; font-weight: 700; display: grid; place-items: center; padding: 0 3px;
+}
+
+.menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 6px; }
+.menu-btn span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: var(--ease); }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  display: none; flex-direction: column; gap: 2px;
+  background: var(--white); border-top: 1px solid var(--border-light);
+  padding: 12px 24px 20px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a { padding: 11px 12px; font-size: 15px; font-weight: 500; color: var(--ink-mid); border-radius: 8px; text-decoration: none; }
+.mobile-nav a:hover { background: var(--green-light); color: var(--green-dark); }
+
+
+/* ═══════════════════════════════════════════════
+   HERO  — full-width banner approach
+   The banner is 1024×424 (2.42:1 ratio). We use it
+   as a background-image on the entire hero row so
+   the products on the right are always fully visible.
+   ═══════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 66px);
+  background-color: var(--cream);
+
+  /* ─── actual banner image ─── */
+  background-image: url('/static/hero-banner.png');
+  /* size: auto height preserves aspect ratio; width fills the section */
+  background-size: cover;
+  /* keep the right-hand side of the panoramic image visible */
+  background-position: right center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Semi-transparent cream gradient over the LEFT half only —
+   keeps text readable while products on the right remain visible */
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(
+    to right,
+    #F7FCF7 0%,
+    rgba(247,252,247,0.97) 18%,
+    rgba(247,252,247,0.85) 32%,
+    rgba(247,252,247,0.50) 46%,
+    rgba(247,252,247,0.12) 60%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+/* Left: copy sits on top of the gradient */
+.hero-copy {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  width: 50%; max-width: 620px;
+  min-height: calc(100vh - 66px);
+  padding: 72px 48px 72px 72px;
+  gap: 0;
+}
+
+/* Hide the explicit <img> element — we use background-image instead */
+.hero-visual {
+  display: none;
+}
+
+.hero-eyebrow {
+  font-size: 10.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 4.2vw, 58px);
+  font-weight: 700; line-height: 1.1;
+  color: var(--green-dark);
+  margin-bottom: 18px;
+}
+.hero-h1 em {
+  font-style: italic; color: var(--green-mid);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.hero-h1 em::after { content: '🌿'; font-style: normal; font-size: 0.65em; }
+
+.hero-p {
+  font-size: 15px; line-height: 1.7; color: var(--ink-mid);
+  max-width: 370px; margin-bottom: 32px;
+}
+
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--green-dark); color: #fff;
+  padding: 14px 28px; border-radius: var(--r-pill);
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  width: fit-content; border: 2px solid var(--green-dark);
+  transition: background var(--ease), transform var(--ease), box-shadow var(--ease);
+  margin-bottom: 40px;
+}
+.hero-cta:hover {
+  background: var(--green-mid); border-color: var(--green-mid);
+  transform: translateY(-2px); box-shadow: var(--sh-md);
+}
+
+.hero-benefits {
+  display: flex; gap: 28px; flex-wrap: wrap;
+}
+.benefit-item {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 7px; text-align: center;
+}
+.benefit-icon {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(247,252,247,0.90); border: 1.5px solid var(--green-border);
+  display: grid; place-items: center; font-size: 20px;
+}
+.benefit-label { font-size: 11px; font-weight: 600; color: var(--ink-mid); line-height: 1.3; }
+
+
+/* ═══════════════════════════════════════════════
+   SECTION COMMONS
+   ═══════════════════════════════════════════════ */
+.section { padding: 80px 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 36px; }
+.section-header { margin-bottom: 44px; }
+.s-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--green-mid); background: var(--green-light);
+  padding: 5px 14px; border-radius: var(--r-pill);
+  margin-bottom: 14px;
+}
+.s-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 700; color: var(--green-dark); line-height: 1.2;
+  margin-bottom: 10px;
+}
+.s-sub { font-size: 14.5px; color: var(--muted); max-width: 480px; line-height: 1.6; }
+
+
+/* ═══════════════════════════════════════════════
+   PRODUCTS
+   ═══════════════════════════════════════════════ */
+.products-section { background: var(--cream); }
+
+.filter-bar { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
+.filter-btn {
+  padding: 8px 20px; font-size: 13px; font-weight: 500;
+  border-radius: var(--r-pill); border: 1.5px solid var(--border-light);
+  background: var(--white); color: var(--ink-mid);
+  transition: all var(--ease);
+}
+.filter-btn:hover { border-color: var(--green-border); color: var(--green-dark); }
+.filter-btn.active { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+
+/* Product grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+@media (max-width: 1100px) { .products-grid { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 780px)  { .products-grid { grid-template-columns: repeat(2,1fr); gap: 16px; } }
+@media (max-width: 480px)  { .products-grid { grid-template-columns: 1fr 1fr; gap: 12px; } }
+
+.p-card {
+  background: var(--white); border-radius: var(--r-md);
+  border: 1px solid var(--border-light); overflow: hidden;
+  box-shadow: var(--sh-xs);
+  display: flex; flex-direction: column;
+  transition: box-shadow var(--ease), transform var(--ease), border-color var(--ease);
+}
+.p-card:hover {
+  box-shadow: var(--sh-lg); transform: translateY(-5px);
+  border-color: var(--green-border);
+}
+
+.p-card-img {
+  position: relative; aspect-ratio: 4/3.2; overflow: hidden;
+  background: var(--cream-alt);
+}
+.p-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.p-card:hover .p-card-img img { transform: scale(1.05); }
+.p-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--green-dark); color: #fff;
+  font-size: 8.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 12px;
+}
+
+.p-card-body { padding: 14px 16px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.p-name { font-size: 14px; font-weight: 700; color: var(--green-dark); line-height: 1.3; }
+.p-size { font-size: 11px; color: var(--muted); }
+.p-desc { font-size: 12px; color: var(--ink-mid); line-height: 1.5; flex: 1; margin-top: 2px; }
+.p-price { font-size: 15px; font-weight: 800; color: var(--green-dark); margin-top: 6px; }
+
+.p-card-actions {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; padding: 0 16px 16px;
+}
+.btn-view {
+  padding: 9px; font-size: 12px; font-weight: 600;
+  border-radius: var(--r-sm); border: 1.5px solid var(--border-light);
+  background: var(--white); color: var(--ink-mid);
+  transition: all var(--ease);
+}
+.btn-view:hover { border-color: var(--green-mid); color: var(--green-dark); background: var(--green-light); }
+.btn-add {
+  padding: 9px; font-size: 12px; font-weight: 600;
+  border-radius: var(--r-sm); border: none;
+  background: var(--green-dark); color: #fff;
+  transition: background var(--ease);
+}
+.btn-add:hover { background: var(--green-mid); }
+
+/* No results */
+.no-results {
+  grid-column: 1/-1; text-align: center; padding: 60px 24px;
+  color: var(--muted); font-size: 15px;
+}
+.no-results span { display: block; font-size: 36px; margin-bottom: 12px; }
+
+
+/* ═══════════════════════════════════════════════
+   WHY AURA SECTION
+   ═══════════════════════════════════════════════ */
+.why-section { background: var(--green-dark); }
+.why-section .s-title,
+.why-section .s-sub { color: rgba(255,255,255,0.9); }
+.why-section .s-tag { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+
+.why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px; }
+@media (max-width: 780px) { .why-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+.why-card {
+  padding: 28px; border-radius: var(--r-md);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  display: flex; flex-direction: column; gap: 12px;
+  transition: background var(--ease);
+}
+.why-card:hover { background: rgba(255,255,255,0.1); }
+.why-icon-wrap {
+  width: 52px; height: 52px; border-radius: var(--r-sm);
+  background: rgba(255,255,255,0.12); display: grid; place-items: center; font-size: 24px;
+}
+.why-title { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: #fff; }
+.why-desc { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,0.68); }
+
+
+/* ═══════════════════════════════════════════════
+   FAQs
+   ═══════════════════════════════════════════════ */
+.faq-section { background: var(--cream-alt); }
+.faq-list { display: flex; flex-direction: column; gap: 10px; max-width: 760px; }
+.faq-item {
+  background: var(--white); border: 1px solid var(--border-light);
+  border-radius: var(--r-md); overflow: hidden;
+  transition: border-color var(--ease);
+}
+.faq-item[open] { border-color: var(--green-border); }
+.faq-item summary {
+  padding: 17px 22px; font-size: 14.5px; font-weight: 600;
+  color: var(--green-dark); cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-toggle { font-size: 22px; color: var(--green-mid); flex-shrink: 0; transition: transform 0.2s; }
+.faq-item[open] .faq-toggle { transform: rotate(45deg); }
+.faq-body { padding: 0 22px 16px; font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+
+/* ═══════════════════════════════════════════════
+   SUPPORT / CONTACT
+   ═══════════════════════════════════════════════ */
+.support-section {
+  background: linear-gradient(135deg, var(--green-dark) 0%, #1e5a35 100%);
+  padding: 80px 0; text-align: center;
+}
+.support-inner { max-width: 580px; margin: 0 auto; padding: 0 32px; }
+.support-inner h2 { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+.support-inner p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.78); margin-bottom: 32px; }
+
+.btn-support {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff; color: var(--green-dark); padding: 15px 32px;
+  border-radius: var(--r-pill); font-size: 14px; font-weight: 700;
+  text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.btn-support:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(0,0,0,0.3); }
+
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
+.site-footer {
+  background: #0D2E1E; color: rgba(255,255,255,0.5);
+  padding: 28px 36px; text-align: center; font-size: 12.5px;
+}
+.site-footer strong { color: rgba(255,255,255,0.85); }
+.site-footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+.site-footer a:hover { color: #fff; }
+
+
+/* ═══════════════════════════════════════════════
+   FLOATING ROBOT — FIXED BOTTOM-RIGHT
+   ═══════════════════════════════════════════════ */
+.aria-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 500;
+  display: block; width: 150px;
+  cursor: pointer; text-decoration: none;
+  animation: robotFloat 3.8s ease-in-out infinite;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.aria-fab img {
+  width: 100%; height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(20,83,45,0.28));
+}
+.aria-fab:hover {
+  animation-play-state: paused;
+  transform: scale(1.07) translateY(-6px);
+}
+.aria-fab:hover img {
+  filter: drop-shadow(0 18px 36px rgba(20,83,45,0.42));
+}
+
+/* Speech bubble — shown on hover */
+.aria-fab-bubble {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 8px;
+  background: #14532D;
+  color: #fff;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 14px 14px 4px 14px;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(20,83,45,0.22);
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  letter-spacing: 0.2px;
+}
+/* Little tail on the bubble */
+.aria-fab-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; right: 14px;
+  width: 0; height: 0;
+  border-left: 6px solid transparent;
+  border-right: 0px solid transparent;
+  border-top: 6px solid #14532D;
+}
+.aria-fab:hover .aria-fab-bubble {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@keyframes robotFloat {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-12px); }
+}
+@media (max-width: 780px) { .aria-fab { width: 100px; bottom: 16px; right: 16px; } }
+@media (max-width: 480px) { .aria-fab { width: 80px;  bottom: 14px; right: 14px; } }
+
+
+/* ═══════════════════════════════════════════════
+   CART DRAWER
+   ═══════════════════════════════════════════════ */
+.cart-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.32); z-index: 300;
+  opacity: 0; pointer-events: none; transition: opacity var(--ease);
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+
+.cart-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; width: 390px; max-width: 96vw;
+  background: var(--white); z-index: 301;
+  transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column; box-shadow: var(--sh-lg);
+}
+.cart-drawer.open { transform: translateX(0); }
+
+.cart-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px; border-bottom: 1px solid var(--border-light);
+}
+.cart-head h3 { font-size: 17px; font-weight: 700; color: var(--green-dark); }
+.cart-close-btn {
+  background: none; border: none; font-size: 22px; color: var(--muted);
+  padding: 4px; border-radius: 6px; line-height: 1;
+  transition: color var(--ease);
+}
+.cart-close-btn:hover { color: var(--ink); }
+
+.cart-body { flex: 1; overflow-y: auto; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px; }
+.cart-empty-state { text-align: center; padding: 48px 0; color: var(--muted); font-size: 14px; }
+.cart-empty-state .ei { font-size: 44px; margin-bottom: 12px; display: block; }
+
+.cart-item { display: flex; gap: 14px; align-items: flex-start; }
+.ci-img { width: 64px; height: 64px; border-radius: var(--r-sm); object-fit: cover; background: var(--cream); flex-shrink: 0; }
+.ci-info { flex: 1; min-width: 0; }
+.ci-name { font-size: 13.5px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ci-price { font-size: 13px; font-weight: 700; color: var(--green-mid); margin-top: 2px; }
+.ci-qty { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.qty-btn {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1.5px solid var(--border-light); background: var(--white);
+  font-size: 15px; font-weight: 700; display: grid; place-items: center; line-height: 1;
+  transition: all var(--ease);
+}
+.qty-btn:hover { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+.qty-val { font-size: 13.5px; font-weight: 600; min-width: 22px; text-align: center; }
+.ci-remove { background: none; border: none; color: var(--muted); font-size: 16px; padding: 4px; border-radius: 4px; transition: color var(--ease); align-self: flex-start; }
+.ci-remove:hover { color: #b91c1c; }
+
+.cart-foot { padding: 18px 24px; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 14px; }
+.cart-total-row { display: flex; justify-content: space-between; align-items: center; }
+.cart-total-row span { font-size: 15px; color: var(--muted); font-weight: 500; }
+.cart-total-row strong { font-size: 20px; font-weight: 800; color: var(--green-dark); }
+.btn-checkout {
+  background: var(--green-dark); color: #fff; border: none;
+  padding: 14px; border-radius: var(--r-md);
+  font-size: 14px; font-weight: 700; width: 100%;
+  transition: background var(--ease);
+}
+.btn-checkout:hover { background: var(--green-mid); }
+
+
+/* ═══════════════════════════════════════════════
+   PRODUCT MODAL
+   ═══════════════════════════════════════════════ */
+.modal-bg {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 400;
+  display: none; place-items: center; padding: 20px;
+}
+.modal-bg.open { display: grid; }
+.modal-card {
+  background: var(--white); border-radius: var(--r-lg);
+  max-width: 580px; width: 100%; position: relative;
+  overflow: hidden; animation: modalPop 0.22s ease;
+  max-height: 92vh; overflow-y: auto;
+}
+@keyframes modalPop { from { opacity:0; transform:scale(0.96) translateY(10px); } to { opacity:1; transform:none; } }
+.modal-img { width: 100%; height: 260px; object-fit: cover; background: var(--cream); }
+.modal-body-pad { padding: 26px 30px; }
+.modal-kicker { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); margin-bottom: 6px; }
+.modal-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--green-dark); margin-bottom: 6px; }
+.modal-price { font-size: 22px; font-weight: 800; color: var(--green-mid); margin-bottom: 12px; }
+.modal-desc { font-size: 14px; line-height: 1.7; color: var(--ink-mid); margin-bottom: 10px; }
+.modal-caution { font-size: 11.5px; color: var(--muted); font-style: italic; margin-bottom: 22px; line-height: 1.5; }
+.modal-actions-row { display: flex; gap: 12px; }
+.modal-btn-add {
+  flex: 1; background: var(--green-dark); color: #fff; border: none;
+  padding: 13px; border-radius: var(--r-sm); font-size: 14px; font-weight: 700;
+  transition: background var(--ease);
+}
+.modal-btn-add:hover { background: var(--green-mid); }
+.modal-btn-aria {
+  flex: 1; background: var(--white); color: var(--green-dark);
+  border: 1.5px solid var(--border-light); padding: 13px;
+  border-radius: var(--r-sm); font-size: 14px; font-weight: 600;
+  text-decoration: none; display: grid; place-items: center;
+  transition: all var(--ease);
+}
+.modal-btn-aria:hover { background: var(--green-light); border-color: var(--green-border); }
+.modal-close-x {
+  position: absolute; top: 14px; right: 14px;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.85); border: none; font-size: 16px;
+  display: grid; place-items: center; box-shadow: var(--sh-sm);
+  transition: background var(--ease);
+}
+.modal-close-x:hover { background: #fff; }
+
+
+/* ═══════════════════════════════════════════════
+   TOAST
+   ═══════════════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: 30px; left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--green-dark); color: #fff;
+  padding: 12px 26px; border-radius: var(--r-pill);
+  font-size: 14px; font-weight: 600;
+  z-index: 999; opacity: 0; pointer-events: none;
+  transition: opacity 0.24s, transform 0.24s;
+  white-space: nowrap; box-shadow: var(--sh-md);
+}
+.toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════════ */
+.rv { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.rv.in { opacity: 1; transform: none; }
+.rv-d1 { transition-delay: 0.08s; }
+.rv-d2 { transition-delay: 0.16s; }
+.rv-d3 { transition-delay: 0.24s; }
+
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE — HERO
+   ═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .hero-copy {
+    width: 56%;
+    padding: 56px 36px 56px 48px;
+  }
+}
+@media (max-width: 900px) {
+  .hero {
+    /* On tablet/mobile show banner from top-centre so products are visible */
+    background-position: center center;
+    min-height: auto;
+  }
+  .hero::before {
+    /* On narrow screens: gradient goes top-to-bottom, text above products */
+    background: linear-gradient(
+      to bottom,
+      rgba(247,252,247,0.98) 0%,
+      rgba(247,252,247,0.96) 30%,
+      rgba(247,252,247,0.70) 55%,
+      rgba(247,252,247,0.20) 78%,
+      transparent 100%
+    );
+  }
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    min-height: auto;
+    padding: 52px 28px 280px;  /* bottom padding leaves room for background products */
+  }
+  .main-nav { display: none; }
+  .search-wrap { display: none; }
+  .menu-btn { display: flex; }
+}
+@media (max-width: 600px) {
+  .hero {
+    background-size: auto 52vw;
+    background-position: right bottom;
+  }
+  .hero-copy {
+    padding: 36px 20px 200px;
+  }
+  .hero-benefits { gap: 18px; }
+  .benefit-icon { width: 40px; height: 40px; font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ HEADER ══════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="brand" href="#home" aria-label="Aura Skincare — homepage">
+      <svg class="brand-leaf" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="18" fill="#E8F0DF"/>
+        <path d="M18 8C14 12 10 15.5 10 19.5C10 23.6 13.6 27 18 27C22.4 27 26 23.6 26 19.5C26 15.5 22 12 18 8Z" fill="#123D2B"/>
+        <path d="M18 13C16 16 14 18.2 14 20.5C14 22.8 15.8 25 18 25C20.2 25 22 22.8 22 20.5C22 18.2 20 16 18 13Z" fill="#6BAA6B"/>
+      </svg>
+      <div class="brand-text"><b>AURA</b><em>SKINCARE</em></div>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
+      <a href="#home"        class="active">Home</a>
+      <a href="#shop">Products</a>
+      <a href="#bestsellers">Bestsellers</a>
+      <a href="#about">About Us</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hdr-right">
+      <div class="search-wrap" role="search" aria-label="Search products">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" id="searchInput" placeholder="Search products, skincare…" aria-label="Search products">
+      </div>
+
+      <button class="hdr-icon-btn" id="cartBtn" aria-label="Open shopping cart (0 items)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge" id="cartBadge" hidden>0</span>
+      </button>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#home">Home</a>
+    <a href="#shop">Add Products</a>
+    <a href="#bestsellers">Bestsellers</a>
+    <a href="#about">About Us</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<main>
+<section class="hero" id="home">
+  <!-- LEFT: copy -->
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Natural Ingredients. Visible Results.</p>
+    <h1 class="hero-h1">
+      Nourish Your Skin<br>
+      <em>Embrace Your Glow</em>
+    </h1>
+    <p class="hero-p">Discover thoughtfully formulated skincare essentials made with natural ingredients for your everyday glow.</p>
+    <a class="hero-cta" href="#shop">Explore Skincare &nbsp;→</a>
+    <div class="hero-benefits">
+      <div class="benefit-item">
+        <div class="benefit-icon">🌿</div>
+        <span class="benefit-label">Natural<br>Ingredients</span>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">✨</div>
+        <span class="benefit-label">Everyday<br>Skincare</span>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🤍</div>
+        <span class="benefit-label">Gentle &amp;<br>Effective</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: full-bleed product image — actual Aura hero banner -->
+  <div class="hero-visual">
+    <img
+      src="/static/hero-banner.png"
+      alt="Aura Skincare products — Green Tea Face Wash, Vitamin C Serum, Hydrating Sunscreen SPF 50 and Green Tea Toner displayed on a natural stone surface with botanical greenery and water"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+</section>
+
+<!-- ══════════════════════ PRODUCTS ══════════════════════ -->
+<section class="section products-section" id="shop">
+  <div class="section-inner">
+    <div class="section-header rv">
+      <div class="s-tag">Our Products</div>
+      <h2 class="s-title">Your Skincare Essentials</h2>
+      <p class="s-sub">Eight thoughtfully crafted products for every step of your daily routine.</p>
+    </div>
+
+    <div class="filter-bar rv rv-d1" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="serum">Serums</button>
+      <button class="filter-btn" data-filter="cleanser">Cleansers</button>
+      <button class="filter-btn" data-filter="moisturizer">Moisturiser</button>
+      <button class="filter-btn" data-filter="toner">Toner</button>
+      <button class="filter-btn" data-filter="sunscreen">Sunscreen</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <div class="no-results"><span>🌿</span>Loading products…</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ BESTSELLERS ══════════════════════ -->
+<section class="section" id="bestsellers" style="background:var(--cream-alt)">
+  <div class="section-inner">
+    <div class="section-header rv">
+      <div class="s-tag">Bestsellers</div>
+      <h2 class="s-title">Most Loved by Our Customers</h2>
+      <p class="s-sub">Start with these community favourites trusted by thousands of customers.</p>
+    </div>
+    <div class="products-grid" id="bestsellersGrid"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════ WHY AURA ══════════════════════ -->
+<section class="section why-section" id="about">
+  <div class="section-inner">
+    <div class="section-header rv">
+      <div class="s-tag">Why Aura</div>
+      <h2 class="s-title">Skincare You Can Trust</h2>
+      <p class="s-sub">Every Aura product is formulated with intention — nothing unnecessary, nothing harmful.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card rv rv-d1">
+        <div class="why-icon-wrap">🌿</div>
+        <div class="why-title">Natural Ingredients</div>
+        <div class="why-desc">Every product is formulated with thoughtfully selected botanical and science-backed ingredients. No harsh chemicals, no unnecessary additives.</div>
+      </div>
+      <div class="why-card rv rv-d2">
+        <div class="why-icon-wrap">🔬</div>
+        <div class="why-title">Dermatologist Friendly</div>
+        <div class="why-desc">Gentle enough for sensitive skin. Formulated without heavy fragrances or harsh sulfates. Tested for everyday use across different skin types.</div>
+      </div>
+      <div class="why-card rv rv-d3">
+        <div class="why-icon-wrap">📦</div>
+        <div class="why-title">Fast &amp; Reliable Delivery</div>
+        <div class="why-desc">Free delivery on orders above ₹499. Standard delivery in 3–5 business days. Easy 7-day returns on unopened products.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FAQs ══════════════════════ -->
+<section class="section faq-section" id="faqs">
+  <div class="section-inner">
+    <div class="section-header rv">
+      <div class="s-tag">FAQs</div>
+      <h2 class="s-title">Frequently Asked Questions</h2>
+      <p class="s-sub">Quick answers about Aura Skincare — or ask Aria anything.</p>
+    </div>
+    <div class="faq-list rv rv-d1">
+      <details class="faq-item">
+        <summary>How long does delivery take?<span class="faq-toggle">+</span></summary>
+        <div class="faq-body">Standard delivery takes 3–5 business days from the date of dispatch across India.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Are there shipping charges?<span class="faq-toggle">+</span></summary>
+        <div class="faq-body">Delivery is free on orders above ₹499. Orders below ₹499 have a flat ₹50 shipping fee.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What is your return policy?<span class="faq-toggle">+</span></summary>
+        <div class="faq-body">Returns are accepted within 7 days of delivery for unopened, unused products in their original packaging. Damaged or defective products must be reported within 48 hours of delivery with photos for replacement.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I cancel my order?<span class="faq-toggle">+</span></summary>
+        <div class="faq-body">Orders can be cancelled only while their status is <em>Processing</em>. Once shipped or out for delivery, cancellation is no longer available — you may refuse delivery at the doorstep.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is Cash on Delivery available?<span class="faq-toggle">+</span></summary>
+        <div class="faq-body">Yes. COD is available for orders up to ₹2,500. You can pay by cash or UPI at the doorstep on delivery.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Are Aura products safe for sensitive skin?<span class="faq-toggle">+</span></summary>
+        <div class="faq-body">Aura products are formulated to be gentle and suitable for most skin types. Always check the product label for specific suitability and perform a patch test when trying a new product.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section class="support-section" id="contact">
+  <div class="support-inner rv">
+    <h2>Need Help? Ask Aria ✨</h2>
+    <p>Aria is Aura's AI-powered assistant — available 24 × 7 to help you track orders, answer product questions, check policies, and recommend the right routine for your skin type.</p>
+    <a class="btn-support" href="/aria">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      Chat with Aria
+    </a>
+  </div>
+</section>
+</main>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="site-footer">
+  <p><strong>Aura Skincare</strong> — Natural Ingredients. Visible Results. &nbsp;·&nbsp; Prices shown are catalog demonstration prices. &nbsp;·&nbsp; <a href="/aria">Chat with Aria</a> &nbsp;·&nbsp; &copy; 2024 Aura Skincare.</p>
+</footer>
+
+<!-- ══════════════════════ FLOATING ROBOT (FIXED BOTTOM-RIGHT + SPEECH BUBBLE) ══════════════════════ -->
+<a class="aria-fab" href="/aria" aria-label="Chat with Aria — Aura Skincare AI assistant">
+  <span class="aria-fab-bubble">Hi Aria! 👋</span>
+  <img src="/static/aria-robot.png" alt="Aria — Aura Skincare AI robot mascot" draggable="false">
+</a>
+
+<!-- ══════════════════════ CART DRAWER ══════════════════════ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state">
+      <span class="ei">🛍️</span>
+      <p>Your cart is empty.<br>Add a product to get started.</p>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFoot" hidden>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <strong id="cartTotalAmt">₹0</strong>
+    </div>
+    <button class="btn-checkout" onclick="alert('Checkout is a demo feature. In a live store this would proceed to payment.')">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- ══════════════════════ PRODUCT MODAL ══════════════════════ -->
+<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-label="Product details">
+  <div class="modal-card">
+    <button class="modal-close-x" id="modalCloseBtn" aria-label="Close product details">✕</button>
+    <img class="modal-img" id="modalImg" src="" alt="">
+    <div class="modal-body-pad">
+      <p class="modal-kicker" id="modalKicker"></p>
+      <h2 class="modal-name"  id="modalName"></h2>
+      <p class="modal-price"  id="modalPrice"></p>
+      <p class="modal-desc"   id="modalDesc"></p>
+      <p class="modal-caution">Descriptions are for catalog demonstration. For verified ingredients and usage directions, check product packaging.</p>
+      <div class="modal-actions-row">
+        <button class="modal-btn-add" id="modalCartBtn">Add to Cart</button>
+        <a class="modal-btn-aria" href="/aria">Ask Aria about this</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ TOAST ══════════════════════ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   AURA SKINCARE — Homepage JS
+   ═══════════════════════════════════════════════════ */
+'use strict';
+
+/* ── Fallback product catalog (used if backend unreachable) ── */
+const CATALOG = [
+  { id:'P-001', name:'Aura Vitamin C Serum',           size:'30 ml', price:699, cat:'serum',       badge:'BESTSELLER',      desc:'A brightening serum with stabilised Vitamin C for your morning routine.', img:'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80', alt:'Vitamin C serum dropper bottle' },
+  { id:'P-002', name:'Aura Hydrating Sunscreen SPF 50',size:'50 g',  price:499, cat:'sunscreen',    badge:'DAILY ESSENTIAL', desc:'Lightweight broad-spectrum SPF 50 sunscreen for everyday UV protection.',    img:'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80', alt:'Sunscreen product on minimal surface' },
+  { id:'P-003', name:'Aura Green Tea Face Wash',        size:'100 ml',price:349, cat:'cleanser',     badge:'GENTLE CARE',     desc:'A gentle gel cleanser for a fresh start to your morning or evening routine.', img:'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80', alt:'Cleanser bottle with botanical styling' },
+  { id:'P-004', name:'Aura Hydrating Toner',            size:'150 ml',price:399, cat:'toner',        badge:'HYDRATION+',      desc:'A lightweight alcohol-free toner to prep skin after cleansing.',             img:'https://images.unsplash.com/photo-1601612628452-9e99ced43524?auto=format&fit=crop&w=700&q=80', alt:'Toner bottle on skincare display' },
+  { id:'P-005', name:'Aura Hyaluronic Acid Serum',      size:'30 ml', price:799, cat:'serum',        badge:'DEEP HYDRATION',  desc:'Intensely hydrating serum with multi-weight Hyaluronic Acid for plump skin.', img:'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=80', alt:'Serum dropper on clean surface' },
+  { id:'P-006', name:'Aura Aloe Vera Moisturizer',      size:'50 g',  price:449, cat:'moisturizer',  badge:'EVERYDAY CARE',   desc:'A light everyday moisturiser with Aloe Vera — the final step in your routine.', img:'https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=700&q=80', alt:'Moisturiser jar on minimal display' },
+  { id:'P-007', name:'Aura Gentle Cleansing Balm',      size:'50 g',  price:549, cat:'cleanser',     badge:'EVENING RITUAL',  desc:'A balm-to-milk cleanser for thorough yet gentle first-cleanse in the evening.', img:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80', alt:'Cleansing balm jar' },
+  { id:'P-008', name:'Aura Niacinamide Serum',          size:'30 ml', price:599, cat:'serum',        badge:'PORE CARE',       desc:'Targeted serum with 10% Niacinamide to minimise the appearance of pores.',   img:'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=700&q=80', alt:'Niacinamide serum bottle on a clean skincare surface' },
+];
+
+let allProducts  = [];
+let currentFilter = 'all';
+let searchQuery   = '';
+let modalPid      = null;
+let cart = JSON.parse(localStorage.getItem('aura_cart') || '[]');
+let toastTimer;
+
+/* ─── Products ─────────────────────────────────── */
+async function loadProducts() {
+  try {
+    const r = await fetch('/api/products', { signal: AbortSignal.timeout(5000) });
+    if (!r.ok) throw new Error('api');
+    const d = await r.json();
+    allProducts = (d.products || []).map(p => ({
+      id:    p.product_id,
+      name:  p.name,
+      size:  p.size,
+      price: p.price,
+      cat:   p.category,
+      badge: p.kicker || '',
+      desc:  p.description,
+      img:   p.image,
+      alt:   p.image_alt || p.name,
+    }));
+  } catch {
+    allProducts = CATALOG;
+  }
+  renderGrid();
+  renderBestsellers();
+}
+
+function getFiltered() {
+  return allProducts.filter(p => {
+    const matchCat    = currentFilter === 'all' || p.cat === currentFilter;
+    const matchSearch = !searchQuery  || p.name.toLowerCase().includes(searchQuery);
+    return matchCat && matchSearch;
+  });
+}
+
+function renderGrid() {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = '';
+  const items = getFiltered();
+  if (!items.length) {
+    grid.innerHTML = '<div class="no-results"><span>🌿</span>No products match your search.</div>';
+    return;
+  }
+  items.forEach(p => grid.appendChild(makeCard(p)));
+}
+
+function renderBestsellers() {
+  const BEST_IDS = ['P-001','P-002','P-005','P-008'];
+  const grid = document.getElementById('bestsellersGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  allProducts.filter(p => BEST_IDS.includes(p.id)).forEach(p => grid.appendChild(makeCard(p)));
+}
+
+function makeCard(p) {
+  const el = document.createElement('article');
+  el.className = 'p-card rv';
+  el.innerHTML = `
+    <div class="p-card-img">
+      <img src="${p.img}" alt="${p.alt}" loading="lazy">
+      ${p.badge ? `<span class="p-badge">${p.badge}</span>` : ''}
+    </div>
+    <div class="p-card-body">
+      <div class="p-name">${p.name}</div>
+      <div class="p-size">${p.size}</div>
+      <div class="p-desc">${p.desc}</div>
+      <div class="p-price">₹${p.price}</div>
+    </div>
+    <div class="p-card-actions">
+      <button class="btn-view" aria-label="View details for ${p.name}">View Details</button>
+      <button class="btn-add"  aria-label="Add ${p.name} to cart">Add to Cart</button>
+    </div>
+  `;
+  el.querySelector('.btn-view').addEventListener('click', () => openModal(p));
+  el.querySelector('.btn-add').addEventListener('click', () => addToCart(p));
+  requestAnimationFrame(() => { el.classList.add('in'); });
+  return el;
+}
+
+/* ─── Filters ──────────────────────────────────── */
+document.getElementById('filterBar').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  currentFilter = btn.dataset.filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+});
+
+/* ─── Search ───────────────────────────────────── */
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value.trim().toLowerCase();
+  renderGrid();
+});
+
+/* ─── Cart ─────────────────────────────────────── */
+function cartTotal() { return cart.reduce((s,i) => s + i.price * i.qty, 0); }
+function cartCount() { return cart.reduce((s,i) => s + i.qty, 0); }
+function saveCart()  { localStorage.setItem('aura_cart', JSON.stringify(cart)); }
+
+function addToCart(p) {
+  const ex = cart.find(i => i.id === p.id);
+  if (ex) ex.qty++;
+  else cart.push({ id: p.id, name: p.name, price: p.price, img: p.img, qty: 1 });
+  saveCart(); renderCart(); showToast(`${p.name.split(' ').slice(0,3).join(' ')} added ✓`);
+}
+
+function renderCart() {
+  const count = cartCount();
+  const badge = document.getElementById('cartBadge');
+  const btn   = document.getElementById('cartBtn');
+  badge.hidden = count === 0;
+  badge.textContent = count;
+  btn.setAttribute('aria-label', `Open shopping cart (${count} item${count !== 1 ? 's' : ''})`);
+
+  const body  = document.getElementById('cartBody');
+  const foot  = document.getElementById('cartFoot');
+  const total = document.getElementById('cartTotalAmt');
+
+  if (!cart.length) {
+    body.innerHTML = '<div class="cart-empty-state"><span class="ei">🛍️</span><p>Your cart is empty.<br>Add a product to get started.</p></div>';
+    foot.hidden = true; return;
+  }
+  body.innerHTML = '';
+  cart.forEach(item => {
+    const row = document.createElement('div'); row.className = 'cart-item';
+    row.innerHTML = `
+      <img class="ci-img" src="${item.img}" alt="${item.name}" loading="lazy">
+      <div class="ci-info">
+        <div class="ci-name">${item.name}</div>
+        <div class="ci-price">₹${item.price}</div>
+        <div class="ci-qty">
+          <button class="qty-btn" data-id="${item.id}" data-d="-1" aria-label="Decrease quantity">−</button>
+          <span class="qty-val" aria-label="${item.qty} in cart">${item.qty}</span>
+          <button class="qty-btn" data-id="${item.id}" data-d="1"  aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+      <button class="ci-remove" data-id="${item.id}" aria-label="Remove ${item.name}">✕</button>
+    `;
+    row.querySelectorAll('.qty-btn').forEach(b => {
+      b.addEventListener('click', () => changeQty(item.id, +b.dataset.d));
+    });
+    row.querySelector('.ci-remove').addEventListener('click', () => removeItem(item.id));
+    body.appendChild(row);
+  });
+  total.textContent = `₹${cartTotal()}`;
+  foot.hidden = false;
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty = Math.max(0, item.qty + delta);
+  if (item.qty === 0) cart = cart.filter(i => i.id !== id);
+  saveCart(); renderCart();
+}
+function removeItem(id) { cart = cart.filter(i => i.id !== id); saveCart(); renderCart(); }
+
+/* Cart open/close */
+const cartDrawer  = document.getElementById('cartDrawer');
+const cartOverlay = document.getElementById('cartOverlay');
+function openCart()  { cartDrawer.classList.add('open'); cartOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeCart() { cartDrawer.classList.remove('open'); cartOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('cartBtn').addEventListener('click', openCart);
+document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+cartOverlay.addEventListener('click', closeCart);
+
+/* ─── Modal ────────────────────────────────────── */
+function openModal(p) {
+  modalPid = p.id;
+  document.getElementById('modalImg').src        = p.img;
+  document.getElementById('modalImg').alt        = p.alt;
+  document.getElementById('modalKicker').textContent = p.badge || '';
+  document.getElementById('modalName').textContent   = p.name;
+  document.getElementById('modalPrice').textContent  = `₹${p.price}`;
+  document.getElementById('modalDesc').textContent   = p.desc;
+  document.getElementById('modalBg').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalBg').classList.remove('open');
+  document.body.style.overflow = '';
+  modalPid = null;
+}
+document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+document.getElementById('modalBg').addEventListener('click', e => { if (e.target === document.getElementById('modalBg')) closeModal(); });
+document.getElementById('modalCartBtn').addEventListener('click', () => {
+  const p = allProducts.find(x => x.id === modalPid);
+  if (p) { addToCart(p); closeModal(); openCart(); }
+});
+
+/* ─── Toast ────────────────────────────────────── */
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('visible'), 2800);
+}
+
+/* ─── Mobile nav toggle ──────────────────────── */
+document.getElementById('menuBtn').addEventListener('click', function() {
+  const nav  = document.getElementById('mobileNav');
+  const open = nav.classList.toggle('open');
+  this.setAttribute('aria-expanded', String(open));
+});
+document.querySelectorAll('.mobile-nav a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('menuBtn').setAttribute('aria-expanded', 'false');
+}));
+
+/* ─── Scroll: active nav + reveals ──────────────── */
+const SECTIONS = ['home','shop','bestsellers','about','faqs','contact'];
+window.addEventListener('scroll', () => {
+  const y = window.scrollY + 80;
+  let active = 'home';
+  SECTIONS.forEach(id => { const s = document.getElementById(id); if (s && s.offsetTop <= y) active = id; });
+  document.querySelectorAll('.main-nav a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === `#${active}`);
+  });
+}, { passive: true });
+
+/* Intersection observer for .rv */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => revealObs.observe(el));
+
+/* ─── Escape closes modal/cart ────────────────── */
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  closeModal(); closeCart();
+});
+
+/* ─── Init ──────────────────────────────────── */
+renderCart();
+loadProducts();
+</script>
+</body>
+</html>

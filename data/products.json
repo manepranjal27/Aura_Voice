@@ -1,0 +1,90 @@
+{
+  "P-001": {
+    "name": "Aura Vitamin C Serum",
+    "size": "30 ml",
+    "price": 699,
+    "category": "serum",
+    "preference": ["dry", "oily"],
+    "description": "A brightening serum step for your daily morning routine. Formulated with stabilised Vitamin C.",
+    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Vitamin C serum bottle on a light surface",
+    "kicker": "BESTSELLER"
+  },
+  "P-002": {
+    "name": "Aura Hydrating Sunscreen SPF 50",
+    "size": "50 g",
+    "price": 499,
+    "category": "sunscreen",
+    "preference": ["dry", "oily"],
+    "description": "A lightweight broad-spectrum SPF 50 sunscreen for your daily protection step.",
+    "image": "https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Sunscreen and skincare products on a minimal surface",
+    "kicker": "DAILY ESSENTIAL"
+  },
+  "P-003": {
+    "name": "Aura Green Tea Face Wash",
+    "size": "100 ml",
+    "price": 349,
+    "category": "cleanser",
+    "preference": ["oily"],
+    "description": "A gentle gel cleanser for a fresh start to your morning or evening routine.",
+    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Skincare cleanser bottle with botanical styling",
+    "kicker": "GENTLE CARE"
+  },
+  "P-004": {
+    "name": "Aura Hydrating Toner",
+    "size": "150 ml",
+    "price": 399,
+    "category": "toner",
+    "preference": ["dry", "oily"],
+    "description": "A lightweight alcohol-free toner to add as a prep step in your skincare routine.",
+    "image": "https://images.unsplash.com/photo-1601612628452-9e99ced43524?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Toner bottle on a light skincare display",
+    "kicker": "HYDRATION+"
+  },
+  "P-005": {
+    "name": "Aura Hyaluronic Acid Serum",
+    "size": "30 ml",
+    "price": 799,
+    "category": "serum",
+    "preference": ["dry"],
+    "description": "An intensely hydrating serum step with multi-weight Hyaluronic Acid for plump-feeling skin.",
+    "image": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Serum dropper bottle on a clean surface",
+    "kicker": "DEEP HYDRATION"
+  },
+  "P-006": {
+    "name": "Aura Aloe Vera Moisturizer",
+    "size": "50 g",
+    "price": 449,
+    "category": "moisturizer",
+    "preference": ["dry", "oily"],
+    "description": "A light everyday moisturizer with Aloe Vera, suitable as the final step in your routine.",
+    "image": "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Moisturizer jar on a minimal skincare display",
+    "kicker": "EVERYDAY CARE"
+  },
+  "P-007": {
+    "name": "Aura Gentle Cleansing Balm",
+    "size": "50 g",
+    "price": 549,
+    "category": "cleanser",
+    "preference": ["dry"],
+    "description": "A balm-to-milk cleanser for a thorough yet gentle first-cleanse step in the evening.",
+    "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Cleansing balm jar and skincare essentials",
+    "kicker": "EVENING RITUAL"
+  },
+  "P-008": {
+    "name": "Aura Niacinamide Serum",
+    "size": "30 ml",
+    "price": 599,
+    "category": "serum",
+    "preference": ["oily"],
+    "description": "A targeted serum step with 10% Niacinamide to help minimise the appearance of pores.",
+    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=700&q=80",
+    "image_alt": "Niacinamide serum bottle on a clean skincare surface",
+    "kicker": "PORE CARE"
+  }
+}
